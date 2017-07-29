@@ -3,14 +3,26 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "bootstrap-sass": "^3.3.7",
+    "firebase": "^4.2.0",
+    "font-awesome-sass": "^4.7.0",
+    "node-sass": "^4.5.3",
+    "npm-run-all": "^4.0.2",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react-bootstrap": "^0.31.1",
+    "react-dom": "^15.6.1",
+    "react-redux": "^5.0.5",
+    "redux": "^3.7.2",
+    "redux-form": "^7.0.3"
   },
   "devDependencies": {
     "react-scripts": "1.0.10"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "build-css": "node-sass src/styles/app.scss src/styles/css/app.css",
+    "watch-css": "yarn run build-css && node-sass -w -r src/styles/app.scss public/css/app.css",
+    "start": "npm-run-all -p watch-css start-react-app",
+    "start-react-app": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
